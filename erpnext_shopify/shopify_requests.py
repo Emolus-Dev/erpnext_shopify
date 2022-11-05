@@ -32,6 +32,9 @@ def get_request(path, settings=None):
 
 	s = get_request_session()
 	url = get_shopify_url(path, settings)
+	with open('prueba.txt', 'w') as f:
+		f.write(str(url))
+ 
 	r = s.get(url, headers=get_header(settings))
 	check_api_call_limit(r)
 	r.raise_for_status()
